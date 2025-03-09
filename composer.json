@@ -1,0 +1,10 @@
+{
+    "name": "nikolai/exam",
+    "description": "exam project",
+    "type": "library",
+    "license": "proprietary",
+    "minimum-stability": "stable",
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
+}
