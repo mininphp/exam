@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'nikolai/exam',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => null,
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => '372bbd59ea6a4ecc45ad7b5537599116c2fbfd28',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -20,9 +20,9 @@
             'dev_requirement' => false,
         ),
         'nikolai/exam' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => null,
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '372bbd59ea6a4ecc45ad7b5537599116c2fbfd28',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

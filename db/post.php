@@ -1,19 +1,24 @@
 <?php
 
-include '../DTO/DTOLead.php';
-include '../util/XDef.php';
+use util\XDef;
 
-use DTO\DTOLead;
+require_once __DIR__ . '/../DTO/DTOLead.php';
+require_once __DIR__ . '/../util/XDef.php';
+require_once __DIR__ . '/../inc/dotenv.inc.php';
 
-echo "Post Page";
+$pdo = new PDO("mysql:host={$_ENV["DB_HOST"]};dbname={$_ENV["DB_DATABASE"]}", $_ENV["DB_USER"], $_ENV["DB_PASS"]);
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$postArray = $_POST;
+$query = ('INSERT INTO leads(first_name, last_name, phone, email, content, department_id)
+    VALUES (:firstName, :lastName, :phone, :email, :content, :departmentId)');
 
-$dtoLead = new DTOLead($postArray['first_name'],
-                       $postArray['last_name'],
-                       $postArray['phone'],
-                       $postArray['email'],
-                       $postArray['content'],
-                       $postArray['department_id']);
+$stmt = $pdo->prepare($query);
 
-echo $dtoLead;
+$stmt->bindValue(':firstName', XDef::parseInput($_POST['first_name']));
+$stmt->bindValue(':lastName', XDef::parseInput($_POST['last_name']));
+$stmt->bindValue(':phone', XDef::parseInput($_POST['phone']));
+$stmt->bindValue(':email', XDef::parseInput($_POST['email']));
+$stmt->bindValue(':content', XDef::parseInput($_POST['content']));
+$stmt->bindValue(':departmentId', XDef::parseInput($_POST['department_id']));
+
+$stmt->execute();

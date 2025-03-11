@@ -1,9 +1,6 @@
 <?php
 
-require __DIR__ . '/../vendor/autoload.php';
-
-$dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
-$dotenv->load();
+require_once __DIR__ . '/../inc/dotenv.inc.php';
 
 $pdo = new PDO("mysql:host={$_ENV["DB_HOST"]};dbname={$_ENV["DB_DATABASE"]}", $_ENV["DB_USER"], $_ENV["DB_PASS"]);
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

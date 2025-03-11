@@ -97,17 +97,17 @@
                     department_id: $('#department_id').val(),
                 };
 
-                $.ajax(
+                $.ajax({
                     url: 'db/post.php',
+                    type: 'POST',
                     data: formData,
-                    success: function(response) {
-                         bna
+                    success: function (response) {
+                        console.log('New element has been successfully added to DB.');
+                        console.log(response);
                     }
-
-                )
-
+                });
             }
-        );
+        )
     </script>
 </body>
 </html>
