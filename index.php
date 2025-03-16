@@ -1,16 +1,13 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<?php
+
+require_once "inc/header.inc.php";
+
+?>
     <title>Document</title>
 </head>
 <body>
     <div class="form-container" id="form-container">
-        <h2>Data Form</h2>
-        <label for="form" id="label">FORM DATA</label>
+        <label for="form" id="label" class="display-4">Lead input form</label>
         <form method="post" id="form">
             <!-- First Name -->
             <div class="form-group">
@@ -60,55 +57,8 @@
     </div>
 
     <script src="js/jquery-3.7.1.js"></script>
-    <script>
-        $(function() {
-
-            $.ajax({
-                url: 'db/getDepartments.php',
-                method: 'GET',
-                data: '',
-                dataType: 'json',
-                success: function(response) {
-
-                    for (let i = 0; i < response.length; i++) {
-                        $('#department_id').append(`<option value="${i}">${response[i].title}</option>`);
-                    }
-
-                },
-                error: function(xhr, status, error) {
-                    console.error('Error fetching data:', error);
-                }
-            });
-        });
-
-    </script>
-    <script>
-        $('#sbmt-btn').click(
-            function(e) {
-
-                e.preventDefault();
-
-                let formData = {
-                    first_name: $('#first_name').val(),
-                    last_name: $('#last_name').val(),
-                    phone: $('#phone').val(),
-                    email: $('#email').val(),
-                    content: $('#content').val(),
-                    department_id: $('#department_id').val(),
-                };
-
-                $.ajax({
-                    url: 'db/post.php',
-                    type: 'POST',
-                    data: formData,
-                    success: function (response) {
-                        console.log('New element has been successfully added to DB.');
-                        console.log(response);
-                    }
-                });
-            }
-        )
-    </script>
+    <script src="js/ajax-index-getmethod.js"></script>
+    <script src="js/ajax-index-postmethod.js"></script>
 </body>
 </html>
 
