@@ -3,7 +3,7 @@ $(document).on('click', '.delete-btn', function() {
     let id = row.find('.row-id').text();
 
     $.ajax({
-        url: 'db/deleteLead.php', // Your PHP script to handle deletion
+        url: 'db/deleteLead.php',
         type: 'POST',
         data: { id: id },
         success: function(response) {

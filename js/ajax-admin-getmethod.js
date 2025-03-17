@@ -10,7 +10,7 @@ $(function() {
             for (let i = 0; i < response.length; i++) {
                 $('#admin-table')
                     .append(`<tr>
-                                <td class="row-id">${i}</td>    
+                                <td class="row-id">${response[i].id}</td>    
                                 <td>${response[i].first_name}</td>
                                 <td>${response[i].last_name}</td>
                                 <td>${response[i].phone}</td>
@@ -23,7 +23,7 @@ $(function() {
             }
         },
         error: function(xhr, status, error) {
-            console.error('Error fetching data:', error);
+            console.error('Minin: Error fetching data:', error);
         }
     });
 });

@@ -18,7 +18,6 @@ require "inc/header.inc.php";
             <tbody id="tbody">
             </tbody>
         </table>
-
         <script src="js/jquery-3.7.1.js"></script>
         <script src="js/ajax-admin-getmethod.js"></script>
         <script src="js/ajax-delete-button.js"></script>
